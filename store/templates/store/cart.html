@@ -30,14 +30,14 @@
             </div>
             {% for item in items%}
             <div class="cart-row">
-                <div style="flex:2;"><img src="{{item.product.imageURL}}" class="row-image"></div>
+                <div style="flex:2;"><img src="{{item.product.imageURL}}" class="row-image "></div>
                 <div style="flex:2;"><p>{{item.product.name}}</p></div>
                 <div style="flex:1;"><p>Ksh {{item.product.price|floatformat:2}}</p></div>
                 <div style="flex:1;">
                     <p class="quantity">{{item.quantity}}</p>
                     <div class="quantity">
-                        <img src="{% static 'images/arrow-up.png'%}" class="chg-quantity">
-                        <img src="{% static 'images/arrow-down.png'%}" class="chg-quantity">
+                        <img data-product={{item.product.id}} data-action="add" src="{% static 'images/arrow-up.png'%}" class="chg-quantity update-cart">
+                        <img data-product={{item.product.id}} data-action="remove" src="{% static 'images/arrow-down.png'%}" class="chg-quantity update-cart">
                      </div>
                 </div>
                 <div style="flex:1;"><p>Ksh {{item.get_total}}</p></div>
